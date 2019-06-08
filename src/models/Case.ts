@@ -15,7 +15,6 @@ export class Case
     constructor(caseId:number,title:string, judge:string, type:string,onBehalfOf:string,status:string,description:string,lawyerId:string,nextHearing:Hearing)
     {
         this.id = caseId;
-        console.log("Case id Found : "+caseId);
         this.title = title;
         this.judge = judge;
         this.type = type;

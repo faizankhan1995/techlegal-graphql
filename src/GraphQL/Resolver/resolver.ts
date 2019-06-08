@@ -1,5 +1,6 @@
 import {Hearing} from "../../models/Hearing"
 import {Case} from "../../models/Case"
+import { SQLiteDbHandler } from "../../DatabaseHandler/SQLiteHandler";
 
 var cases:Case[] = [];
 const caseResolvers =
@@ -18,12 +19,21 @@ const caseResolvers =
             }
         },
 
-        cases(root: any, { params }: any) {
-            console.log("Returning Cases.");
-            cases.forEach(element => {
-                console.log("Case Id : "+ element.id);
-            }); 
+        async cases(root: any, { params }: any) {
+            var dbHandler = new SQLiteDbHandler();
+            cases = await dbHandler.getCases("");
+            console.log("3- This Should apear Last.");
             return cases;
+            // return dbHandler.getCases("").then((cases) => {
+            //     console.log("Following number of Cases Found.")
+            //     console.log(cases.length);
+            //     for (var i: number = 0; i < cases.length; i++) {
+
+            //         console.log("Case Title : "+cases[i].title);
+            //     }
+            //     return cases;
+            // });
+
         },
         pendingCases(root: any, { params }: any) {
             return cases;
