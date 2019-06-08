@@ -4,8 +4,8 @@ import { Request, Response } from "express";
 const router = express.Router();
 
 // Fetch Case from Db.
-router.get('/:hearing', (req: Request, res: Response) => {
-    return res.send(`Fetch Hearing ${req.params.caseId}`);
+router.get('/:hearingId', (req: Request, res: Response) => {
+    return res.send(`Fetch Hearing ${req.params.hearingId}`);
 });
 
 // Add Case to Db.
@@ -14,13 +14,13 @@ router.post('/', (req: Request, res: Response) => {
 });
 
 // Update Case in Db.
-router.put('/:hearing', (req: Request, res: Response) => {
-    return res.send(`Update Hearing ${req.params.caseId}`);
+router.put('/:hearingId', (req: Request, res: Response) => {
+    return res.send(`Update Hearing ${req.params.hearingId}`);
 });
 
 // Delete Case from Db.
-router.delete('/:hearing', (req: Request, res: Response) => {
-    return res.send(`Update Hearing ${req.params.caseId}`);
+router.delete('/:hearingId', (req: Request, res: Response) => {
+    return res.send(`Update Hearing ${req.params.hearingId}`);
 });
 
 // Export the router

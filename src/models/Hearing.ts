@@ -1,10 +1,10 @@
 export class Hearing{
 
-    public caseId:string;
+    public caseId:number;
     public hearingdate:string;
     public proceedings:string;
 
-    constructor(caseId:string,hearingdate:string,proceedings:string)
+    constructor(caseId:number,hearingdate:string,proceedings:string)
     {
         this.caseId = caseId;
         this.hearingdate = hearingdate;
