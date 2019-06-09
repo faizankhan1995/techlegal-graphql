@@ -8,31 +8,24 @@ const caseResolvers =
     Query:
     {
         case(root: any, { params }: any) {
-            return {
-                id: 12312,
-                title: "hardcoded test",
-                description: "hardcoded test",
-                judge : "hardcoded test",
-                type : "hardcoded test",
-                onBehalfOf : "hardcoded test",
-                status : "hardcoded test"
-            }
+            return new Case(
+                12312,
+                "hardcoded title",
+                "hardcoded judge",
+                "hardcoded type",
+                "hardcoded onBehalfOf",
+                "hardcoded status",
+                "hardcoded description",
+                "hardcoded LawyerId",
+                new Hearing(12312, "hardcoded hearing date", "hardcoded Proceedings")
+            );
         },
 
         async cases(root: any, { params }: any) {
             var dbHandler = new SQLiteDbHandler();
-            cases = await dbHandler.getCases("");
+            var cases = await dbHandler.getCases("");
             console.log("3- This Should apear Last.");
             return cases;
-            // return dbHandler.getCases("").then((cases) => {
-            //     console.log("Following number of Cases Found.")
-            //     console.log(cases.length);
-            //     for (var i: number = 0; i < cases.length; i++) {
-
-            //         console.log("Case Title : "+cases[i].title);
-            //     }
-            //     return cases;
-            // });
 
         },
         pendingCases(root: any, { params }: any) {
